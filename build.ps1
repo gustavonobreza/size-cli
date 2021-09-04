@@ -1,5 +1,5 @@
 $filebin = "size.exe";
-$fullPath = "./bin/$filebin"
+$fullPath = "./bin/windows/amd64/$filebin"
 $binExists = Test-Path -Path $fullPath
 
 if ($binExists){
@@ -8,6 +8,6 @@ if ($binExists){
 
 
 
-echo "Building you app..."
-go build  -o bin/$filebin .;
-echo "Finish!";
+Write-Output "Building you app..."
+go build  -o $fullPath .;
+Write-Output "Finish!";
