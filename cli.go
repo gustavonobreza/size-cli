@@ -7,10 +7,10 @@ import (
 )
 
 func main() {
-	filepath, filename, erro := parseArgs()
+	filepath, filename, err := parseArgs()
 
-	if erro != nil {
-		println(erro.Error())
+	if err != nil {
+		println(err.Error())
 		return
 	}
 
