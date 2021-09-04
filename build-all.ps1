@@ -3,7 +3,7 @@ $OSs = @('windows', 'linux', 'darwin')
 $basePath = ".\bin\"
 $plataforms = @('amd64', 'arm64')
 
-Write-Output "Building you app..."
+Write-Output "Building your app..."
 
 if (!(Test-Path -Path $basePath)) {
 	mkdir $basePath | Out-Null
