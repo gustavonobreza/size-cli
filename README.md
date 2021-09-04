@@ -5,7 +5,7 @@ CLI command to show the size of files
 ```bash
   # Check bin folder, search to you plataform and download corresponding executable.
   # or run
-  $ go build .
+  $ go install .
 
 ```
 
