@@ -3,30 +3,31 @@ $OSs = @('windows', 'linux', 'darwin')
 $basePath = ".\bin\"
 $plataforms = @('amd64', 'arm64')
 
+Write-Output "Building you app..."
+
+if (!(Test-Path -Path $basePath)) {
+	mkdir $basePath | Out-Null
+}
 
 foreach ($os in $OSs) {
+	$osPath = $basePath + $os
+
+	# Delete Folder if exists
+	if (Test-Path -Path $osPath) {
+		Remove-Item -Force -Recurse -Confirm:$false $osPath;
+	}
+
 	foreach ($plataform in $plataforms) {
 		$binpath = ($basePath + $os + "\" + $plataform + "\" + $filebin)
 
 		if ($os -eq "windows") {
 			$binpath += '.exe'
 		}
-		
-		$binExists = Test-Path -Path ($binpath)
-
-		# Write-Output $binpath
-		if ($binExists) {
-			Remove-Item -Force -Recurse -Confirm:$false $binpath;
-		}
-
-		Write-Output "go build -o $binpath"
+	
+		Write-Output "Building $os/$plataform"
 
 		$env:GOOS = $os; $env:GOARCH = $plataform; go build -o $binpath .;
-
 	}
 }
 
-
-#echo "Building you app..."
-#go build  -o bin/$filebin .;
-#echo "Finish!";
+Write-Output "Finished!";
