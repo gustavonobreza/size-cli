@@ -1,1 +1,4 @@
 big.txt
+b.ps1
+bin/*
+!bin/*/
