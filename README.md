@@ -2,12 +2,11 @@
 CLI command to show the size of files
 
 ## Install
-```md
-Check bin folder, search to you plataform and download corresponding executable.
-
 ```bash
-    $ go build .
-```
+  # Check bin folder, search to you plataform and download corresponding executable.
+  # or run
+  $ go build .
+
 ```
 
 ## Usage
